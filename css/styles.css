@@ -1,0 +1,15 @@
+.jumbotron {
+    margin: 0px;
+    padding: 30px;
+    background-image: linear-gradient(to right, rgb(176, 201, 255), rgb(142, 194, 255), rgb(0, 89, 255));
+}
+#headerLogo {
+    width: 85px;
+}
+
+h1 {
+    font-size: 40px;
+}
+h3 {
+    font-size: 20px;
+}
