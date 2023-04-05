@@ -31,7 +31,8 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-3 col-sm-2 align-self-center">
-                    <a class="btn btn-dark" href="Products.html" role="button" id="headerButton" title="View Products Button">View
+                    <a class="btn btn-dark" href="Products.html" role="button" data-toggle="modal"
+                        data-target="cartModal" id="headerButton" title="View Products Button">View
                         Our</br>Products</a>
                 </div>
             </div>
@@ -56,11 +57,51 @@
             </ul>
             <span class="navbar-text ml-auto">
                 <a role="button" href="#" title="Cart Button" id="cartButton">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                    <i class="fa fa-shopping-cart"></i> Cart
                 </a>
             </span>
         </div>
     </nav>
+
+    <div id="cartModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Login</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-12">
+                                    <label class="sr-only" for="loginEmail">Email Address></label>
+                                    <input type="email" class="form-control form-control-sm" id="loginEmail"
+                                        placeholder="Enter Email" />
+                                </div>
+                                <div class="form-group col-12">
+                                    <label class="sr-only" for="loginPassword">Password</label>
+                                    <input type="password" class="form-control form-control-sm" id="loginPassword"
+                                        placeholder="Password" />
+                                </div>
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" />
+                                        <label class="form-check-label"> Remember me</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <button type="button" class="btn btn-secondary btn-sm ml-auto"
+                                    data-dismiss="modal">Continue Shopping</button>
+                                <button type="submit" class="btn btn-primary btn-sm ml-1">Check Out</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -86,7 +127,7 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
