@@ -31,8 +31,8 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-3 col-sm-2 align-self-center">
-                    <a class="btn btn-dark" href="Products.html" role="button" data-toggle="modal"
-                        data-target="cartModal" id="headerButton" title="View Products Button">View
+                    <a class="btn btn-dark" href="Products.html" role="button" id="headerButton"
+                        title="View Products Button">View
                         Our</br>Products</a>
                 </div>
             </div>
@@ -67,34 +67,39 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Login</h3>
+                    <h3 class="modal-title">Shopping Cart</h3>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form>
                             <div class="form-row">
-                                <div class="form-group col-12">
-                                    <label class="sr-only" for="loginEmail">Email Address></label>
-                                    <input type="email" class="form-control form-control-sm" id="loginEmail"
-                                        placeholder="Enter Email" />
+                                <div class="col-sm-4 d-none d-sm-block">
+                                    <p>Item</p>
                                 </div>
-                                <div class="form-group col-12">
-                                    <label class="sr-only" for="loginPassword">Password</label>
-                                    <input type="password" class="form-control form-control-sm" id="loginPassword"
-                                        placeholder="Password" />
+                                <div class="col d-none d-sm-block">
+                                    <p>Qty</p>
                                 </div>
                                 <div class="col">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" />
-                                        <label class="form-check-label"> Remember me</label>
-                                    </div>
+                                </div>
+                                <div class="col">
+                                </div>
+                                <div class="col d-none d-sm-block">
+                                    <p>Price</p>
+                                </div>
+                                <div class="col">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <button type="button" class="btn btn-secondary btn-sm ml-auto"
+                                <div class="form-group col-12 cart">
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <button type="button" class="btn btn-secondary btn-sm mr-1"
                                     data-dismiss="modal">Continue Shopping</button>
-                                <button type="submit" class="btn btn-primary btn-sm ml-1">Check Out</button>
+                                <button type="submit" class="btn btn-primary btn-sm mr-auto">Check Out</button>
+                                <p class="text-right">Total: <strong class="total"></strong></p>
                             </div>
                         </form>
                     </div>
@@ -128,6 +133,35 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
+    <script src="https://unpkg.com/cart-localstorage@1.1.4/dist/cart-localstorage.min.js"
+        type="text/javascript"></script>
+
+        <script>
+            function renderCart(items) {
+                const $cart = document.querySelector(".cart")
+                const $total = document.querySelector(".total")
+    
+                $cart.innerHTML = items.map((item) => `
+                            <div class="row">
+                                <div class="col-sm-4 mb-2">${item.name}</div>
+                                <div class="col">${item.quantity}</div>
+                                <div class="col" style="width: 60px;">	
+                                    <button type="button" class="btn btn-sm btn-outline-dark"
+                                        onClick="cartLS.quantity(${item.id},1)">+</button>
+                                    </div>
+                                <div class="col" style="width: 60px;">
+                                    <button type="button" class="btn btn-sm btn-outline-dark"
+                                        onClick="cartLS.quantity(${item.id},-1)">-</button>
+                                </div>
+                                <div class="col" class="text-right">$${item.price}</div>
+                                <div class="col" class="text-right"><Button class="btn btn-sm btn-primary" onClick="cartLS.remove(${item.id})">Delete</Button></div>
+                            </div>`).join("")
+    
+                $total.innerHTML = "$" + cartLS.total()
+            }
+            renderCart(cartLS.list())
+            cartLS.onChange(renderCart)
+        </script>
 </body>
 
 </html>

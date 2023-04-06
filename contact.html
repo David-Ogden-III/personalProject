@@ -31,8 +31,6 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-3 col-sm-2 align-self-center">
-                    <a class="btn btn-dark" href="Products.html" role="button" id="headerButton" title="View Products Button">View
-                        Our</br>Products</a>
                 </div>
             </div>
         </div>
@@ -44,25 +42,71 @@
         </button>
         <div class="collapse navbar-collapse" id="oamNavbar">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" title="Home Button" href="index.html">Home<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" title="Home Button" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" title="Products Button" href="Products.html">Products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" title="Contact Button" href="#">Contact Us</a>
+                <li class="nav-item active">
+                    <a class="nav-link" title="Contact Button" href="#">Contact Us<span
+                        class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
                 <a role="button" href="#" title="Cart Button" id="cartButton">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                    <i class="fa fa-shopping-cart"></i> Cart
                 </a>
             </span>
         </div>
     </nav>
 
-    <h1>This is the Contact Us page</h1>
+    <div id="cartModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Shopping Cart</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-sm-4 d-none d-sm-block">
+                                    <p>Item</p>
+                                </div>
+                                <div class="col d-none d-sm-block">
+                                    <p>Qty</p>
+                                </div>
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                </div>
+                                <div class="col d-none d-sm-block">
+                                    <p>Price</p>
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 cart">
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <button type="button" class="btn btn-secondary btn-sm mr-1"
+                                    data-dismiss="modal">Continue Shopping</button>
+                                <button type="submit" class="btn btn-primary btn-sm mr-auto">Check Out</button>
+                                <p class="text-right">Total: <strong class="total"></strong></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>This is the Contact page</h1>
 
     <footer class="footer">
         <div class="container">
@@ -88,7 +132,36 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://unpkg.com/cart-localstorage@1.1.4/dist/cart-localstorage.min.js"
+        type="text/javascript"></script>
+
+        <script>
+            function renderCart(items) {
+                const $cart = document.querySelector(".cart")
+                const $total = document.querySelector(".total")
+    
+                $cart.innerHTML = items.map((item) => `
+                            <div class="row">
+                                <div class="col-sm-4 mb-2">${item.name}</div>
+                                <div class="col">${item.quantity}</div>
+                                <div class="col" style="width: 60px;">	
+                                    <button type="button" class="btn btn-sm btn-outline-dark"
+                                        onClick="cartLS.quantity(${item.id},1)">+</button>
+                                    </div>
+                                <div class="col" style="width: 60px;">
+                                    <button type="button" class="btn btn-sm btn-outline-dark"
+                                        onClick="cartLS.quantity(${item.id},-1)">-</button>
+                                </div>
+                                <div class="col" class="text-right">$${item.price}</div>
+                                <div class="col" class="text-right"><Button class="btn btn-sm btn-primary" onClick="cartLS.remove(${item.id})">Delete</Button></div>
+                            </div>`).join("")
+    
+                $total.innerHTML = "$" + cartLS.total()
+            }
+            renderCart(cartLS.list())
+            cartLS.onChange(renderCart)
+        </script>
 </body>
 
 </html>
