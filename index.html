@@ -98,7 +98,7 @@
                             <div class="form-row">
                                 <button type="button" class="btn btn-secondary btn-sm mr-1"
                                     data-dismiss="modal">Continue Shopping</button>
-                                <button type="submit" class="btn btn-primary btn-sm mr-auto">Check Out</button>
+                                <button type="submit" class="btn smBlueButton btn-sm mr-auto">Check Out</button>
                                 <p class="text-right">Total: <strong class="total"></strong></p>
                             </div>
                         </form>
@@ -154,7 +154,7 @@
                                         onClick="cartLS.quantity(${item.id},-1)">-</button>
                                 </div>
                                 <div class="col" class="text-right">$${item.price}</div>
-                                <div class="col" class="text-right"><Button class="btn btn-sm btn-primary" onClick="cartLS.remove(${item.id})">Delete</Button></div>
+                                <div class="col" class="text-right"><Button class="btn btn-sm smBlueButton" onClick="cartLS.remove(${item.id})">Delete</Button></div>
                             </div>`).join("")
     
                 $total.innerHTML = "$" + cartLS.total()
