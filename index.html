@@ -33,7 +33,7 @@
                 <div class="col-xl-2 col-md-3 col-sm-2 align-self-center">
                     <a class="btn btn-dark" href="Products.html" role="button" id="headerButton"
                         title="View Products Button">View
-                        Our</br>Products</a>
+                        Our<br/>Products</a>
                 </div>
             </div>
         </div>
@@ -108,25 +108,27 @@
         </div>
     </div>
 
+    <div class="container">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-transparent">
-          <li class="breadcrumb-item active" aria-current="page">Home</li>
+        <ol class="breadcrumb bg-transparent ml-n3">
+            <li class="breadcrumb-item active" aria-current="page">Home</li>
         </ol>
-      </nav>
+    </nav>
+    </div>
 
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col text-center">
                     <h6>Links</h6>
-                    <a href="#" class="badge dark-link" title="Link to home">Home</a></br>
-                    <a href="Products.html" class="badge dark-link" title="Link to Products">Products</a></br>
+                    <a href="#" class="badge dark-link" title="Link to home">Home</a><br/>
+                    <a href="Products.html" class="badge dark-link" title="Link to Products">Products</a><br/>
                     <a href="contact.html" class="badge dark-link" title="Link to Contact Us">Contact Us</a>
                 </div>
                 <div class="col text-center">
                     <h6>Contact Info</h6>
                     <a href="mailto:#" class="badge dark-link" title="Company Email"><i
-                            class="fa fa-envelope-o"></i>OgdenAM@OAM.com</a></br>
+                            class="fa fa-envelope-o"></i>OgdenAM@OAM.com</a><br/>
                     <a href="tel:#" class="badge dark-link" title="Company Email"><i
                             class="fa fa-phone"></i>123-456-7890</a>
                 </div>
@@ -142,12 +144,12 @@
     <script src="https://unpkg.com/cart-localstorage@1.1.4/dist/cart-localstorage.min.js"
         type="text/javascript"></script>
 
-        <script>
-            function renderCart(items) {
-                const $cart = document.querySelector(".cart")
-                const $total = document.querySelector(".total")
-    
-                $cart.innerHTML = items.map((item) => `
+    <script>
+        function renderCart(items) {
+            const $cart = document.querySelector(".cart")
+            const $total = document.querySelector(".total")
+
+            $cart.innerHTML = items.map((item) => `
                             <div class="row">
                                 <div class="col-sm-4 mb-2">${item.name}</div>
                                 <div class="col">${item.quantity}</div>
@@ -162,12 +164,12 @@
                                 <div class="col" class="text-right">$${item.price}</div>
                                 <div class="col" class="text-right"><Button class="btn btn-sm smBlueButton" onClick="cartLS.remove(${item.id})">Delete</Button></div>
                             </div>`).join("")
-    
-                $total.innerHTML = "$" + cartLS.total()
-            }
-            renderCart(cartLS.list())
-            cartLS.onChange(renderCart)
-        </script>
+
+            $total.innerHTML = "$" + cartLS.total()
+        }
+        renderCart(cartLS.list())
+        cartLS.onChange(renderCart)
+    </script>
 </body>
 
 </html>

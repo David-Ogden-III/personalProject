@@ -19,8 +19,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-4 col-sm-3 col-md-2 align-self-center">
-                    <img id="headerLogo" src="Images/JumbotronLogo.png" class="img-fluid" alt="OAM Logo"
-                        title="OAM Logo" />
+                    <a href="index.html" title="OAM Logo">
+                        <image src="Images/JumbotronLogo.png" id="headerLogo" class="img-fluid" alt="Header Logo">
+                        </image>
+                    </a>
                 </div>
                 <div class="col align-self-center">
                     <div class="row d-none d-sm-block">
@@ -31,6 +33,9 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-3 col-sm-2 align-self-center">
+                    <a class="btn btn-dark" href="Products.html" role="button" id="headerButton"
+                        title="View Products Button">View
+                        Our<br />Products</a>
                 </div>
             </div>
         </div>
@@ -50,7 +55,7 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" title="Contact Button" href="#">Contact Us<span
-                        class="sr-only">(current)</span></a>
+                            class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
@@ -106,28 +111,85 @@
         </div>
     </div>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-transparent">
-          <li class="breadcrumb-item"><a href="index.html" class="dark-link">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
-        </ol>
-      </nav>
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent ml-n3">
+                <li class="breadcrumb-item"><a href="index.html" title="Home link" class="dark-link">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+            </ol>
+        </nav>
 
-    <h1>This is the Contact page</h1>
+        <div class="mt-n3 text-center">
+            <h1 class="mb-3">Contact Us</h1>
+            <hr />
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>Our Address</h3>
+                    <address>1600 Pennsylvania Ave NW<br />Washington, DC 20500</address>
+                </div>
+                <div class="col">
+                    <h3>Customer Support</h3>
+                    <a href="mailto:#" class="dark-link" title="Company Email"><i
+                            class="fa fa-envelope-o"></i>OgdenAM@OAM.com</a><br />
+                    <a href="tel:#" class="dark-link" title="Company Email"><i class="fa fa-phone"></i>123-456-7890</a>
+                </div>
+            </div>
+            <hr />
+
+            <form>
+                <div class="form-group col-8 mx-auto">
+                    <h3 class="mb-3">Let us know how to assist you!</h3>
+                    <div class="row text-left">
+                        <div class="col-sm-6 mb-3">
+                            <label for="fName">First name</label>
+                            <input type="text" class="form-control" id="fName" required placeholder="John" />
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label for="lName">Last name</label>
+                            <input type="text" class="form-control" id="lName" required placeholder="Doe" />
+                        </div>
+                    </div>
+                    <div class="row text-left">
+                        <div class="col-sm-6 mb-3">
+                            <label for="email">E-Mail Address</label>
+                            <input type="email" class="form-control" id="email" required
+                                placeholder="JohnDoe@email.com" />
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label for="pnumber">Phone Number</label>
+                            <input type="tel" class="form-control" id="pnumber" required placeholder="123-456-7890" />
+                        </div>
+                    </div>
+                    <div class="row text-left">
+                        <div class="col mb-3">
+                            <label for="customerMessage">Tell us your thoughts</label>
+                            <textarea class="form-control" id="customerMessage" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="row text-left">
+                        <div class="col mb-3">
+                            <label for="fileSelect">Drop us your file</label>
+                            <input type="file" class="form-control-file btn-sm" id="fileSelect" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col text-center">
                     <h6>Links</h6>
-                    <a href="index.html" class="badge dark-link" title="Link to home">Home</a></br>
-                    <a href="Products.html" class="badge dark-link" title="Link to Products">Products</a></br>
+                    <a href="index.html" class="badge dark-link" title="Link to home">Home</a><br />
+                    <a href="Products.html" class="badge dark-link" title="Link to Products">Products</a><br />
                     <a href="#" class="badge dark-link" title="Link to Contact Us">Contact Us</a>
                 </div>
                 <div class="col text-center">
                     <h6>Contact Info</h6>
                     <a href="mailto:#" class="badge dark-link" title="Company Email"><i
-                            class="fa fa-envelope-o"></i>OgdenAM@OAM.com</a></br>
+                            class="fa fa-envelope-o"></i>OgdenAM@OAM.com</a><br />
                     <a href="tel:#" class="badge dark-link" title="Company Email"><i
                             class="fa fa-phone"></i>123-456-7890</a>
                 </div>
@@ -143,12 +205,12 @@
     <script src="https://unpkg.com/cart-localstorage@1.1.4/dist/cart-localstorage.min.js"
         type="text/javascript"></script>
 
-        <script>
-            function renderCart(items) {
-                const $cart = document.querySelector(".cart")
-                const $total = document.querySelector(".total")
-    
-                $cart.innerHTML = items.map((item) => `
+    <script>
+        function renderCart(items) {
+            const $cart = document.querySelector(".cart")
+            const $total = document.querySelector(".total")
+
+            $cart.innerHTML = items.map((item) => `
                             <div class="row">
                                 <div class="col-sm-4 mb-2">${item.name}</div>
                                 <div class="col">${item.quantity}</div>
@@ -163,12 +225,12 @@
                                 <div class="col" class="text-right">$${item.price}</div>
                                 <div class="col" class="text-right"><Button class="btn btn-sm smBlueButton" onClick="cartLS.remove(${item.id})">Delete</Button></div>
                             </div>`).join("")
-    
-                $total.innerHTML = "$" + cartLS.total()
-            }
-            renderCart(cartLS.list())
-            cartLS.onChange(renderCart)
-        </script>
+
+            $total.innerHTML = "$" + cartLS.total()
+        }
+        renderCart(cartLS.list())
+        cartLS.onChange(renderCart)
+    </script>
 </body>
 
 </html>

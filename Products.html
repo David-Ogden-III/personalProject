@@ -18,9 +18,11 @@
     <header class="jumbotron jumbotron-fluid">
         <div class="container">
             <div class="row">
-                <div class="col-4 col-sm-3 col-md-2 align-self-center">
-                    <img id="headerLogo" src="Images/JumbotronLogo.png" class="img-fluid" alt="OAM Logo"
-                        title="OAM Logo" />
+                <div class="col-2 align-self-center">
+                    <a href="index.html" title="OAM Logo">
+                        <image src="Images/JumbotronLogo.png" id="headerLogo" class="img-fluid" alt="Header Logo">
+                        </image>
+                    </a>
                 </div>
                 <div class="col align-self-center">
                     <div class="row d-none d-sm-block">
@@ -31,6 +33,9 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-3 col-sm-2 align-self-center">
+                    <a class="btn btn-dark" href="Products.html" role="button" id="headerButton"
+                        title="View Products Button">View
+                        Our<br />Products</a>
                 </div>
             </div>
         </div>
@@ -106,58 +111,61 @@
         </div>
     </div>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-transparent">
-          <li class="breadcrumb-item"><a href="index.html" class="dark-link">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Products</li>
-        </ol>
-      </nav>
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent ml-n3">
+                <li class="breadcrumb-item"><a href="index.html" title="Home link" class="dark-link">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Products</li>
+            </ol>
+        </nav>
 
-    <div class="container mt-n3">
-        <h1 class="mb-3">Products</h1>
-        <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="card mb-4 text-center">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Grogu</br>Miniature</h4>
-                    </div>
-                    <div class="card-body mx-auto">
-                        <img alt="Grogu Model" title="Grogu Model" class="rounded productPhoto mx-auto"
-                            src="Images/grogualt.jpg" />
-                        <h2 class="card-title">$20</h2>
-                        <button type="button" class="btn btn-block blue-button"
-                            onClick="cartLS.add({id: 1, name: 'Grogu Miniature', price: 20})">Add to
-                            Cart</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card mb-4 text-center">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Luffy</br>Miniature</h4>
-                    </div>
-                    <div class="card-body mx-auto">
-                        <img alt="Luffy Model" title="Luffy Model" class="image-fluid productPhoto rounded mx-auto"
-                            src="Images/luffyalt.jpg" />
-                        <h2 class="card-title">$30</h2>
-                        <button type="button" class="btn btn-block blue-button"
-                            onClick="cartLS.add({id: 2, name: 'Luffy Miniature', price: 30})">Add to
-                            Cart</button>
+        <div class="mt-n3">
+            <h1 class="mb-3">Products</h1>
+            <hr />
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-4 text-center">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Grogu<br />Miniature</h4>
+                        </div>
+                        <div class="card-body mx-auto">
+                            <img alt="Grogu Model" title="Grogu Model" class="rounded productPhoto mx-auto"
+                                src="Images/grogualt.jpg" />
+                            <h2 class="card-title">$20</h2>
+                            <button type="button" class="btn btn-block blue-button"
+                                onClick="cartLS.add({id: 1, name: 'Grogu Miniature', price: 20})">Add to
+                                Cart</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card mb-4 text-center">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Gengar</br>Miniature</h4>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-4 text-center">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Luffy<br />Miniature</h4>
+                        </div>
+                        <div class="card-body mx-auto">
+                            <img alt="Luffy Model" title="Luffy Model" class="image-fluid productPhoto rounded mx-auto"
+                                src="Images/luffyalt.jpg" />
+                            <h2 class="card-title">$30</h2>
+                            <button type="button" class="btn btn-block blue-button"
+                                onClick="cartLS.add({id: 2, name: 'Luffy Miniature', price: 30})">Add to
+                                Cart</button>
+                        </div>
                     </div>
-                    <div class="card-body mx-auto">
-                        <img alt="Gengar Model" title="Gengar Model"
-                            class="image-fluid productPhoto rounded mx-auto" src="Images/gengaralt.jpg" />
-                        <h2 class="card-title">$20</h2>
-                        <button type="button" class="btn btn-block blue-button"
-                            onClick="cartLS.add({id: 3, name: 'Gengar Miniature', price: 20})">Add to
-                            Cart</button>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-4 text-center">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Gengar<br />Miniature</h4>
+                        </div>
+                        <div class="card-body mx-auto">
+                            <img alt="Gengar Model" title="Gengar Model"
+                                class="image-fluid productPhoto rounded mx-auto" src="Images/gengaralt.jpg" />
+                            <h2 class="card-title">$20</h2>
+                            <button type="button" class="btn btn-block blue-button"
+                                onClick="cartLS.add({id: 3, name: 'Gengar Miniature', price: 20})">Add to
+                                Cart</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -169,14 +177,14 @@
             <div class="row">
                 <div class="col text-center">
                     <h6>Links</h6>
-                    <a href="index.html" class="badge dark-link" title="Link to home">Home</a></br>
-                    <a href="#" class="badge dark-link" title="Link to Products">Products</a></br>
+                    <a href="index.html" class="badge dark-link" title="Link to home">Home</a><br />
+                    <a href="#" class="badge dark-link" title="Link to Products">Products</a><br />
                     <a href="contact.html" class="badge dark-link" title="Link to Contact Us">Contact Us</a>
                 </div>
                 <div class="col text-center">
                     <h6>Contact Info</h6>
                     <a href="mailto:#" class="badge dark-link" title="Company Email"><i
-                            class="fa fa-envelope-o"></i>OgdenAM@OAM.com</a></br>
+                            class="fa fa-envelope-o"></i>OgdenAM@OAM.com</a><br />
                     <a href="tel:#" class="badge dark-link" title="Company Email"><i
                             class="fa fa-phone"></i>123-456-7890</a>
                 </div>
